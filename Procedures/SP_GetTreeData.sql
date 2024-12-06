@@ -1,11 +1,17 @@
 CREATE PROCEDURE GetTreeData(
-    IN p_limit INT -- Número de registros a devolver, -1 para todos
+    IN p_page INT,
+    IN p_pageSize INT
 )
 BEGIN
-    IF p_limit = 0 THEN
-        SELECT * FROM TreeInfo;
-    ELSE
-        SELECT * FROM TreeInfo
-        LIMIT p_limit;
-    END IF;
-END;
+    DECLARE v_offset INT;
+    SET v_offset = (p_page - 1) * p_pageSize;
+
+    SELECT *
+    FROM TreeInfo
+    LIMIT v_offset, p_pageSize;
+
+END 
+
+DROP PROCEDURE IF EXISTS GetTreeData;
+
+CALL GetTreeData(50, 10);
