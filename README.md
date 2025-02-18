@@ -54,6 +54,8 @@ mysql -u root -p
 Introduce la contraseña de root cuando se solicite.
 
 o baja un interfas grafica para manejador de base de datos como azure data studio con la extencion de mysql
+https://azure.microsoft.com/es-mx/products/data-studio
+https://learn.microsoft.com/en-us/azure-data-studio/quickstart-mysql
 
 ### 3. Crear la Base de Datos
 ```sql
